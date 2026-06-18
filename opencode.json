@@ -1,9 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
-  "instructions": [
-    "ai-setup-AGENTS.md"
-  ],
   "agent": {
     "plan": {
       "model": "opencode-go/deepseek-v4-pro",
