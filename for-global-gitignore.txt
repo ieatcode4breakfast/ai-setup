@@ -1,0 +1,67 @@
+# opencode
+opencode.json
+.opencode/
+AGENTS.md
+
+# Aider
+.aider*
+.aider.conf*
+.aider.input.history
+.aider.tags.cache.v3
+
+# Amazon Q Developer
+.amazon-q/
+
+# Augment Code
+.augment/
+
+# Claude Code
+.claude/
+
+# Cline
+.cline/
+.clinerules
+
+# Cody (Sourcegraph)
+.cody/
+
+# Codeium
+.codeium/
+
+# Continue.dev
+.continue/
+
+# Cursor
+.cursor/
+
+# Gemini Code Assist
+.gemini/
+
+# Kilocode / Antigravity
+.antigravitycli/
+*.kilocode/
+.kilo/
+
+# PearAI
+.pearai/
+
+# Plans
+.plans/
+
+# Poolside
+.poolside/
+
+# Roo
+.roo/
+
+# Supermaven
+.supermaven/
+
+# TabNine
+.tabnine/
+
+# Windsurf
+.windsurf/
+
+# Catch-all AI rules files (used by multiple tools)
+.rules
