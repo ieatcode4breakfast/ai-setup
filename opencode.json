@@ -16,6 +16,14 @@
       "permission": {
         "task": "deny"
       }
+    },
+    "build-lite": {
+      "model": "opencode/deepseek-v4-flash-free",
+      "variant": "high",
+      "permission": {
+        "task": "deny"
+      },
+      "description": "Lightweight build agent using Flash Free with Think High reasoning"
     }
   }
 }
