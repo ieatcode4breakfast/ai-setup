@@ -17,7 +17,7 @@ Research the codebase and generate a detailed tests-first plan (tests to create,
 ### Generate Plan
 
 ```
-Research the codebase and generate a detailed plan. It must be self-contained and have all necessary context for for another agent to execute.
+Research the codebase and generate a detailed plan. It must be self-contained and have all necessary context for another agent to execute.
 ```
 
 ---
