@@ -1,21 +1,16 @@
 # ai-setup
 
-Portable AI coding setup — clone anywhere, prevent AI tool config from leaking into remote repos.
+1. Copy files into a project
+2. Make sure everything in ai-setup-gitignore.txt is copied into the global gitignore file without removing existing gitignores
 
-## What it does
+```
+curl -O https://raw.githubusercontent.com/ieatcode4breakfast/ai-setup/main/opencode.json
+curl -O https://raw.githubusercontent.com/ieatcode4breakfast/ai-setup/main/AGENTS.md
+```
 
-This repo contains your personal opencode config, agent rules, and a global gitignore template. Clone it onto any machine, copy the files where they belong, and no AI tool will ever accidentally commit its config files into a remote repo again.
-
-## Quick start
-
-1. Clone into a permanent location:
-   ```
-   git clone https://github.com/ieatcode4breakfast/ai-setup.git ~/ai-setup
-   ```
-
-2. Install the global gitignore (appends to your existing global ignore — does NOT replace anything you already have):
-   ```
-   mkdir -p ~/.config/git
-   cat ~/ai-setup/ai-setup-gitignore.txt >> ~/.config/git/ignore
-   git config --global core.excludesFile ~/.config/git/ignore
-   ```
+Once per machine:
+```
+mkdir -p ~/.config/git
+curl -s https://raw.githubusercontent.com/ieatcode4breakfast/ai-setup/main/ai-setup-gitignore.txt >> ~/.config/git/ignore
+git config --global core.excludesFile ~/.config/git/ignore
+```
