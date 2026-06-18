@@ -18,6 +18,9 @@ AGENTS.md
 # Claude Code
 .claude/
 
+# Codex (OpenAI)
+.codex/
+
 # Cline
 .cline/
 .clinerules
