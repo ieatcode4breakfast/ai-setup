@@ -1,9 +1,10 @@
 AGENTS.md
+.misc/
+.plan-files/
 
 # opencode
 opencode.json
 .opencode/
-
 
 # Aider
 .aider*
