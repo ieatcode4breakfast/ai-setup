@@ -1,13 +1,18 @@
 {
+  "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
   "instructions": ["AGENTS.md"],
   "agent": {
     "plan": {
+      "model": "opencode-go/deepseek-v4-pro",
+      "variant": "max",
       "permission": {
         "task": "deny"
       }
     },
     "build": {
+      "model": "opencode-go/deepseek-v4-pro",
+      "variant": "max",
       "permission": {
         "task": "deny"
       }

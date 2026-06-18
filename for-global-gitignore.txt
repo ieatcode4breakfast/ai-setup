@@ -1,7 +1,9 @@
+AGENTS.md
+
 # opencode
 opencode.json
 .opencode/
-AGENTS.md
+
 
 # Aider
 .aider*
