@@ -23,7 +23,9 @@
       "model": "opencode/deepseek-v4-flash-free",
       "variant": "max",
       "permission": {
-        "task": "deny"
+        "task": "deny",
+        "edit": "ask",
+        "bash": "ask"
       },
       "description": "Lightweight plan agent using Flash Free with Think Max reasoning"
     },
