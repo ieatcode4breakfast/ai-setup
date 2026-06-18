@@ -5,7 +5,7 @@ REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
 echo "==> Installing global gitignore..."
 mkdir -p ~/.config/git
-cp "$REPO_DIR/for-global-gitignore.txt" ~/.config/git/ignore
+cp "$REPO_DIR/ai-setup-gitignore.txt" ~/.config/git/ignore
 git config --global core.excludesFile ~/.config/git/ignore
 
 echo "==> Done. Global gitignore installed at ~/.config/git/ignore"

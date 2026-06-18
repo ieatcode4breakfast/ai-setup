@@ -1,6 +1,7 @@
-AGENTS.md
-.misc/
-.plan-files/
+ai-setup-AGENTS.md
+.ai-setup-misc/
+.ai-setup-scripts/
+ai-setup-README.md
 
 # opencode
 opencode.json
