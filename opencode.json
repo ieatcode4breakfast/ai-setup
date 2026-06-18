@@ -10,6 +10,14 @@
         "task": "deny"
       }
     },
+    "plan-lite": {
+      "model": "opencode/deepseek-v4-flash-free",
+      "variant": "max",
+      "permission": {
+        "task": "deny"
+      },
+      "description": "Lightweight plan agent using Flash Free with Think Max reasoning"
+    },
     "build": {
       "model": "opencode-go/deepseek-v4-pro",
       "variant": "max",
