@@ -1,30 +1,34 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "plan",
+  "default_agent": "build",
   "agent": {
     "plan": {
       "model": "opencode-go/deepseek-v4-pro",
       "variant": "max",
       "permission": {
-        "task": "deny"
+        "task": {
+          "*": "deny",
+          "explore": "allow"
+        }
       }
     },
     "build": {
       "model": "opencode-go/deepseek-v4-pro",
       "variant": "max",
       "permission": {
-        "task": "deny"
+        "task": {
+          "*": "deny",
+          "explore": "allow",
+          "build-lite": "allow"
+        }
       }
     },
-    "plan-lite": {
+    "explore": {
       "model": "opencode/deepseek-v4-flash-free",
-      "variant": "max",
+      "variant": "high",
       "permission": {
-        "task": "deny",
-        "edit": "ask",
-        "bash": "ask"
-      },
-      "description": "Lightweight plan agent using Flash Free with Think Max reasoning"
+        "task": "deny"
+      }
     },
     "build-lite": {
       "model": "opencode/deepseek-v4-flash-free",
