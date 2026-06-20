@@ -5,6 +5,7 @@
     "plan": {
       "model": "opencode-go/deepseek-v4-pro",
       "variant": "max",
+      "prompt": "If you have enough context and the request can be completed in a single step or with a direct answer, do it yourself; delegate to a sub-agent only if the task requires multi-file exploration, cross-dependency planning, or sequential steps.",
       "permission": {
         "task": {
           "*": "deny",
@@ -15,6 +16,7 @@
     "build": {
       "model": "opencode-go/deepseek-v4-pro",
       "variant": "max",
+      "prompt": "If you have enough context and the request can be completed in a single step or with a direct answer, do it yourself; delegate to a sub-agent only if the task requires multi-file exploration, cross-dependency planning, or sequential steps.",
       "permission": {
         "task": {
           "*": "deny",
