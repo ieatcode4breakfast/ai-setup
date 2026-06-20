@@ -5,7 +5,7 @@
     "plan": {
       "model": "opencode-go/deepseek-v4-pro",
       "variant": "max",
-      "prompt": "If you have enough context and the request can be completed in a single step or with a direct answer, do it yourself; delegate to a sub-agent only if the task requires multi-file exploration, cross-dependency planning, or sequential steps.",
+      "prompt": "If you have enough context and the request can be completed in a single step or with a direct answer, do it yourself; delegate to a sub-agent only if the task requires multi-file exploration, multi-web search, cross-dependency planning, or sequential steps.",
       "permission": {
         "task": {
           "*": "deny",
@@ -16,7 +16,7 @@
     "build": {
       "model": "opencode-go/deepseek-v4-pro",
       "variant": "max",
-      "prompt": "If you have enough context and the request can be completed in a single step or with a direct answer, do it yourself; delegate to a sub-agent only if the task requires multi-file exploration, cross-dependency planning, or sequential steps.",
+      "prompt": "If you have enough context and the request can be completed in a single step or with a direct answer, do it yourself; delegate to a sub-agent only if the task requires multi-file exploration, multi-web search, cross-dependency planning, or sequential steps.",
       "permission": {
         "task": {
           "*": "deny",
@@ -28,6 +28,8 @@
     "explore": {
       "model": "opencode/deepseek-v4-flash-free",
       "variant": "high",
+      "mode": "subagent",
+      "description": "Fast agent for exploring codebases and multi-step research. Use when you need to search multiple sources, find files by patterns, or cross-reference information.",
       "permission": {
         "task": "deny"
       }
@@ -35,10 +37,11 @@
     "build-lite": {
       "model": "opencode/deepseek-v4-flash-free",
       "variant": "high",
+      "mode": "subagent",
+      "description": "Lightweight build agent using Flash Free with Think High reasoning",
       "permission": {
         "task": "deny"
-      },
-      "description": "Lightweight build agent using Flash Free with Think High reasoning"
+      }
     }
   }
 }
