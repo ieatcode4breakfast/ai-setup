@@ -22,7 +22,7 @@ Research the codebase and generate a detailed plan.
 
 ---
 
-### Codebase-aligned Plan
+### Codebase-Aligned Plan
 
 ```
 Analyze the existing codebase to identify tech stack, architectural patterns, coding styles, error handling, and logical flows, then formulate a comprehensive implementation plan that seamlessly aligns with these established conventions.
@@ -30,6 +30,13 @@ Analyze the existing codebase to identify tech stack, architectural patterns, co
 
 ---
 
+### Codebase-Aligned Plan (Orchestration)
+
+```
+Analyze the existing codebase to identify tech stack, architectural patterns, coding styles, error handling, and logical flows, then formulate a comprehensive implementation plan that seamlessly aligns with these established conventions. Systematically delegate high-volume exploration work to @explore sub-agent for deep codebase comprehension.
+```
+
+---
 ### Quick Plan
 
 ```
@@ -48,7 +55,7 @@ Remember. Any further suggestions or nitpicks you make is considered a blocker a
 
 ---
 
-### Implement Plan
+### Implement Plan (Orchestration)
 
 ```
 Act as the orchestrator to implement this plan, systematically delegating high-volume grunt work to the @build-lite sub-agent while utilizing the @explore sub-agent for deep codebase comprehension. Break the overarching plan into discrete, sequential phases sized for easy execution by a smaller model, and mandate an @explore review between each phase to actively verify plan adherence, catch execution flaws, and dynamically adjust the context before moving forward. Implementify. You have implementify authorization until the plan is fully implemented.
