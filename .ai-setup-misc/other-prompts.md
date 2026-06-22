@@ -1,7 +1,7 @@
 ### Detailed Plan
 
 ```
-Create a plan with comprehensive background, execution context, and granular details so an independent agent can audit and execute it flawlessly.
+Create a plan with a comprehensive background, execution context, and granular details so an independent agent can audit and execute it flawlessly.
 ```
 
 ---
@@ -25,7 +25,7 @@ Research the codebase and generate a detailed plan.
 ### Codebase-aligned Plan
 
 ```
-Analyze the existing codebase to identify architectural patterns, coding styles, error handling, and logical flows, then formulate a comprehensive implementation plan that seamlessly aligns with these established conventions.
+Analyze the existing codebase to identify tech stack, architectural patterns, coding styles, error handling, and logical flows, then formulate a comprehensive implementation plan that seamlessly aligns with these established conventions.
 ```
 
 ---
