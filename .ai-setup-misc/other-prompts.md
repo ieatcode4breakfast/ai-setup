@@ -33,7 +33,7 @@ Analyze the existing codebase to identify tech stack, architectural patterns, co
 ### Codebase-Aligned Plan (Orchestration)
 
 ```
-Analyze the existing codebase to identify tech stack, architectural patterns, coding styles, error handling, and logical flows, then formulate a comprehensive implementation plan that seamlessly aligns with these established conventions. Systematically delegate high-volume exploration work to @explore sub-agent for deep codebase comprehension.
+Analyze the existing codebase to identify tech stack, architectural patterns, coding styles, error handling, and logical flows, then formulate a comprehensive implementation plan that seamlessly aligns with these established conventions. Systematically delegate high-volume exploration work to @explore sub-agent for deep codebase comprehension. The plan must have a comprehensive background, execution context, and granular details so an independent agent can audit and execute it flawlessly.
 ```
 
 ---
