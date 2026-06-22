@@ -48,6 +48,14 @@ Remember. Any further suggestions or nitpicks you make is considered a blocker a
 
 ---
 
+### Implement Plan
+
+```
+Act as the orchestrator to implement this plan, systematically delegating high-volume grunt work to the @build-lite sub-agent while utilizing the @explore sub-agent for deep codebase comprehension. Break the overarching plan into discrete, sequential phases sized for easy execution by a smaller model, and mandate an @explore review between each phase to actively verify plan adherence, catch execution flaws, and dynamically adjust the context before moving forward. Implementify. You have implementify authorization until the plan is fully implemented.
+```
+
+---
+
 ### Audit Implementation
 
 ```
