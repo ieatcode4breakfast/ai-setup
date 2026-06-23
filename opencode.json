@@ -3,9 +3,8 @@
   "default_agent": "build",
   "agent": {
     "plan": {
-      "model": "opencode-go/deepseek-v4-pro",
-      "variant": "max",
-      "prompt": "Delegate to a sub-agent if the task requires multi-file exploration, multi-web search, multiple git-related steps, cross-dependency planning, or sequential steps.",
+      "model": "opencode-go/glm-5.2",
+      "variant": "high",
       "permission": {
         "task": {
           "*": "deny",
