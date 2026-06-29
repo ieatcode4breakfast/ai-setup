@@ -44,6 +44,9 @@ opencode.json
 # Gemini Code Assist
 .gemini/
 
+# GitHub
+.github/
+
 # Kilocode / Antigravity
 .antigravitycli/
 *.kilocode/
