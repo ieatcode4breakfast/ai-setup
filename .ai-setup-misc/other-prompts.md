@@ -9,7 +9,7 @@ Create a plan with a comprehensive background, execution context, and granular d
 ### Generate TDD Plan
 
 ```
-Research the codebase and generate a detailed tests-first plan (tests to create, tests to update).
+Create a tests-first (tests to create, tests to update) plan with a comprehensive background, execution context, and granular details so an independent agent can audit and execute it flawlessly.
 ```
 
 ---
