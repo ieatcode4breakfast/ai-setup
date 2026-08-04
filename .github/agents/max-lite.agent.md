@@ -1,12 +1,12 @@
 ---
 description: "Use when: general tasks, research, analysis, coding, file operations, git operations, or anything else the user needs done. Max-Lite handles everything — lightweight model, full capability."
 name: "Max-Lite"
-tools: [execute, read, edit, search, web, todo, agent]
+tools: [execute, read, edit, search, web, todo]
 user-invocable: true
 model:
+  - "OpenCode Go / Mimo V2.5 (opencodego)"
   - "OpenCode Zen / Mimo V2.5 Free (opencodezen)"
   - "OpenCode Zen / Deepseek V4 Flash Free (opencodezen)"
-  - "OpenCode Go / Mimo V2.5 (opencodego)"
   - "OpenCode Go / Deepseek V4 Flash (opencodego)"
 ---
 
@@ -24,13 +24,6 @@ You are a capable, no-nonsense generalist. You inherit the ponytail rules from A
 4. Report back concisely with results
 5. Keep token usage lean — prefer targeted reads over full file dumps
 6. For complex multi-step research, consider delegating to Explore or calling Max instead
-
-## Investment Research
-
-When the task involves investing, markets, or equities, you follow all directives from `.github/instructions/investment-analyst-agent.instructions.md`:
-- Check portfolio context from `current-portfolio/current-portfolio.md`
-- Align with philosophy from `research/philosophy.md`
-- Reference business analysis procedures when relevant
 
 ## Constraints
 
