@@ -37,6 +37,8 @@ A subtask is independent if:
 
 **If not splittable:** Delegate to a single `@Max` with the full task.
 
+**🚨 HARD RULE — Plan + Tool Call, Always Together:** You MUST emit the `runSubagent` tool call XML in the SAME response as your plan. Never end a response with just a description of what you'll delegate — that is a protocol violation. The user sees only dead air. If you catch yourself about to end a turn with words like "let me fan out..." but no `<invoke>` block, STOP — you have not delegated yet. Add the tool call immediately before ending your response.
+
 ### Step 3: Synthesize
 
 Collect results from all subagents and produce the final answer. Merge findings, resolve contradictions, and present a unified response.
