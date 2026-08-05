@@ -16,9 +16,10 @@ Download and sync all files from https://github.com/ieatcode4breakfast/ai-setup 
    b. Delete the file at that relative path in the current project if it already exists
    c. Ensure the parent directories exist in the current project
    d. Copy the file from the temp clone into the current project at the relative path
-   e. Append that relative path to .git/info/exclude in the current project
+   e. Append "/<relative-path>" to .git/info/exclude (always with leading /)
 
-4. Deduplicate .git/info/exclude after all files are processed:
+4. Normalize all exclude entries to use a leading /, then deduplicate:
+   sed -i 's|^[^/]|/&|' .git/info/exclude
    sort -u -o .git/info/exclude .git/info/exclude
 
 5. Remove the temporary clone directory:
@@ -28,5 +29,5 @@ Download and sync all files from https://github.com/ieatcode4breakfast/ai-setup 
    git status --short
 
 Full one-shot command:
-TEMP_DIR=$(mktemp -d) && git clone --depth 1 https://github.com/ieatcode4breakfast/ai-setup "$TEMP_DIR" && rm "$TEMP_DIR/README.md" 2>/dev/null && find "$TEMP_DIR" -name '.git' -prune -o -type f -print | while read -r src; do rel="${src#$TEMP_DIR/}"; rm -f "$rel" 2>/dev/null; mkdir -p "$(dirname "$rel")"; cp "$src" "$rel"; echo "/$rel" >> .git/info/exclude; done && sort -u -o .git/info/exclude .git/info/exclude && rm -rf "$TEMP_DIR" && echo "Done. Git status:" && git status --short
+TEMP_DIR=$(mktemp -d) && git clone --depth 1 https://github.com/ieatcode4breakfast/ai-setup "$TEMP_DIR" && rm "$TEMP_DIR/README.md" 2>/dev/null && find "$TEMP_DIR" -name '.git' -prune -o -type f -print | while read -r src; do rel="${src#$TEMP_DIR/}"; rm -f "$rel" 2>/dev/null; mkdir -p "$(dirname "$rel")"; cp "$src" "$rel"; echo "/$rel" >> .git/info/exclude; done && sed -i 's|^[^/]|/&|' .git/info/exclude && sort -u -o .git/info/exclude .git/info/exclude && rm -rf "$TEMP_DIR" && echo "Done. Git status:" && git status --short
 ```
