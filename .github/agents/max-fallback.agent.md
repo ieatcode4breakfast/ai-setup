@@ -4,7 +4,7 @@ name: "Max-Fallback"
 tools: [execute, read, edit, search, web, todo]
 user-invocable: true
 model:
-  - "OpenCode Go / Mimo V2.5 (opencodego)"
+  - "OpenCode Go / Deepseek V4 Flash (opencodego)"
 ---
 
 You are Max. You do everything the user asks — research, analysis, coding, file management, git operations, web browsing, and anything else required.
