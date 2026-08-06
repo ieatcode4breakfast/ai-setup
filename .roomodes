@@ -21,3 +21,6 @@ customModes:
       Full instructions: .ai-setup/agents/troy.md
     groups:
       - read
+      - edit
+      - command
+      - mcp
