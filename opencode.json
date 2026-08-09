@@ -1,8 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "troy",
+  "default_agent": "Troy",
   "agent": {
-    "ace": {
+    "Ace": {
       "name": "Ace",
       "description": "Use when: general tasks, research, analysis, coding, file operations, git operations, or anything else the user needs done. Ace handles everything.",
       "mode": "primary",
@@ -21,7 +21,7 @@
       },
       "prompt": "{file:.ai-setup/agents/max.md}"
     },
-    "max": {
+    "Max": {
       "name": "Max",
       "description": "Use when: general tasks, research, analysis, coding, file operations, git operations, or anything else the user needs done. Max handles everything.",
       "mode": "subagent",
@@ -40,7 +40,7 @@
       },
       "prompt": "{file:.ai-setup/agents/max.md}"
     },
-    "max-fallback": {
+    "Max-Fallback": {
       "name": "Max-Fallback",
       "description": "Use when: general tasks, research, analysis, coding, file operations, git operations, or anything else the user needs done. Max-Fallback handles everything on the paid tier.",
       "mode": "subagent",
@@ -59,7 +59,7 @@
       },
       "prompt": "{file:.ai-setup/agents/max.md}"
     },
-    "troy": {
+    "Troy": {
       "name": "Troy",
       "description": "Use when: pure orchestrator — plans and delegates all work to Max. Troy never reads files, writes code, searches, or fetches data itself — hands all work to Max.",
       "mode": "primary",
