@@ -1,5 +1,0 @@
-### Detailed Plan
-
-```
-Create a plan with a comprehensive background, execution context, and granular details so an independent agent can audit and execute it flawlessly.
-```
