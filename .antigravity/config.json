@@ -1,7 +1,0 @@
-{
-  "allow": [
-    "command(*)"
-  ],
-  "deny": [],
-  "ask": [] 
-}
