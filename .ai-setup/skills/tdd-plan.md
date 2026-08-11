@@ -1,1 +1,0 @@
-Review the codebase and create a tests-first (tests to create, tests to update) plan with a comprehensive background, execution context, and granular details so an independent agent can audit and execute it flawlessly.

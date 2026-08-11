@@ -1,5 +1,5 @@
 ---
 name: regression-check
-description: Loads the regression-check skill instructions.
+description: 'Check for potential regressions and second/third order effects of a change.'
 ---
-Please refer to C:\Users\Dwayne\Documents\Projects\ai-setup\.ai-setup\skills\regression-check.md for the instructions for this skill.
+Any potential regressions, 2nd and 3rd order effects if that is implemented? Is this change targeted and safe?

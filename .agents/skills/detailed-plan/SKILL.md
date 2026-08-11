@@ -1,5 +1,5 @@
 ---
 name: detailed-plan
-description: Loads the detailed-plan skill instructions.
+description: 'Review the codebase and create a granular plan for independent agent execution.'
 ---
-Please refer to C:\Users\Dwayne\Documents\Projects\ai-setup\.ai-setup\skills\detailed-plan.md for the instructions for this skill.
+Review the codebase and create a plan with a comprehensive background, execution context, and granular details so an independent agent can audit and execute it flawlessly.

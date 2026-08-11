@@ -1,5 +1,5 @@
 ---
 name: codebase-aligned-plan
-description: Loads the codebase-aligned-plan skill instructions.
+description: 'Analyze the codebase and create an implementation plan aligned with existing conventions.'
 ---
-Please refer to C:\Users\Dwayne\Documents\Projects\ai-setup\.ai-setup\skills\codebase-aligned-plan.md for the instructions for this skill.
+Analyze the existing codebase to identify tech stack, architectural and design patterns, coding styles, error handling, testing method, and logical flows, then formulate a comprehensive implementation plan that seamlessly aligns with these established conventions. Create a plan with a comprehensive background, execution context, and granular details so an independent agent can audit and execute it flawlessly.

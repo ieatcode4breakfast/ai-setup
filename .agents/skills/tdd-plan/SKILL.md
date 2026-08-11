@@ -1,5 +1,5 @@
 ---
 name: tdd-plan
-description: Loads the tdd-plan skill instructions.
+description: 'Review the codebase and create a tests-first implementation plan.'
 ---
-Please refer to C:\Users\Dwayne\Documents\Projects\ai-setup\.ai-setup\skills\tdd-plan.md for the instructions for this skill.
+Review the codebase and create a tests-first (tests to create, tests to update) plan with a comprehensive background, execution context, and granular details so an independent agent can audit and execute it flawlessly.
