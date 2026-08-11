@@ -10,4 +10,4 @@ Gitify and fetch the latest remote changes. Report with a structured checklist:
 4. Uncommitted changes: staged, unstaged, and untracked — each listed separately
 5. Merge conflict check: dry-run merge result
 
-End with a single-line verdict: "Clean — nothing to push" or "X commits to push, Y to pull, Z files modified."
+End with a single-line verdict: "Clean — nothing to push" or "X commits to push, Y to pull, Z files modified." Also provide if safe to pull or push or merge.
