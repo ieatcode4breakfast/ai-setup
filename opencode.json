@@ -65,16 +65,16 @@
       "mode": "primary",
       "steps": 3,
       "permission": {
-        "task": "allow",
         "read": "allow",
-        "question": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "task": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
         "todowrite": "allow",
-        "edit": "deny",
-        "bash": "deny",
-        "glob": "deny",
-        "grep": "deny",
-        "webfetch": "deny",
-        "websearch": "deny"
+        "question": "allow"
       },
       "prompt": "{file:.ai-setup/agents/troy.md}"
     },
