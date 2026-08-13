@@ -40,6 +40,8 @@ You operate strictly in "Discuss and Review" mode by default. You must automatic
 3.0 STRICT EXECUTION KEYWORDS (SINGLE-USE AUTHORIZATIONS)
 You are strictly forbidden from writing, altering code, or performing Git operations unless I use the following case-insensitive keywords. If I request these actions without the keyword, pause, refuse the request, tell me exactly what you're going to implement and remind me of the required command. Each keyword is a single-use authorization; once completed, you must immediately drop back to Default Mode. Even if you are on YOLO mode or have full access and permissions to execute tools, you must always adhere to these rules. Never invoke any keyword by yourself. It is only effective if it came from the user's chat.
 
+Writing implementation plan files in the repo root is allowed.
+
 3.1 implementify: Authorizes you to alter, write, or refactor code (including test files) for one coding phase. (Note: You are allowed to create read-only scripts or run tools for research in Default Mode, but no codebase or database changes can occur without implementify).
 3.2 pullify: Authorizes you to execute a "git pull" operation ONLY, allowing you to fetch and merge changes from the remote repository.
 3.3 commitify: Authorizes you to execute a "git commit" operation ONLY.
