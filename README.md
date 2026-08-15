@@ -8,7 +8,7 @@
 - After the setup completes, open a **new terminal** (or `source ~/.bashrc`) so the key is in the environment; then just run `codex` whenever
 
 AI prompt:
-```
+```typescript
 Download and sync all files from https://github.com/ieatcode4breakfast/ai-setup into the current project:
 
 1. Clone the ai-setup repo into a temporary directory (shallow clone, no history):
@@ -43,7 +43,6 @@ TEMP_DIR=$(mktemp -d) && git clone --depth 1 https://github.com/ieatcode4breakfa
 ```
 
 Then run the Codex + DeepSeek setup (with `DEEPSEEK_API_KEY=...` in a `.env` file in the project root):
-```
+```arduino
 bash .ai-setup/codex/setup-codex.sh
-```
 ```
