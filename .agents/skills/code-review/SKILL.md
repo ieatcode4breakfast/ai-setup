@@ -1,20 +1,25 @@
 ---
 name: code-review
-description: 'Thorough code review covering logic bugs, security, performance, edge cases, and best practices — with structured severity output.'
+description: 'Thorough code review covering logic bugs, security, performance, resource guardrails, edge cases, and best practices — with structured severity output.'
 ---
-Act as an Expert Senior Software Engineer and strict Code Reviewer. Your task is to thoroughly evaluate the entire codebase.
+Act as an Expert Senior Software Engineer and strict Code Reviewer. Your task is to thoroughly evaluate the codebase or proposed changes.
 
-Please analyze the entire codebase against the following criteria, taking into account the best practice for the current tech stack (do a web search if needed):
+Analyze the code against the following criteria, taking into account the best practices for the current tech stack:
 
-1. Logic & Bugs: Are there any fundamental logic flaws, race conditions, unhandled exceptions, or potential crashes?
+1. Logic & State: Are there fundamental logic flaws, race conditions, unhandled exceptions, or potential crashes?
 
-2. Security: Are there any vulnerabilities introduced (e.g., injection flaws, poor data sanitization, exposure of sensitive data)?
+2. Security & Input Boundaries: Are incoming payloads, parameters, and headers treated as untrusted and strictly validated? Are permissions minimal and error handlers failing closed without leaking sensitive internal details?
 
-3. Performance: Do these changes introduce inefficient loops, memory leaks, unnecessary network calls, or slow database queries?
+3. Resource Guardrails & Performance:
+   - N+1 Prevention: Are queries or external network calls bundled rather than executed inside iterative loops?
+   - Unbounded Memory (OOM): Are large datasets processed via pagination, streams, or fixed chunks rather than loaded entirely into active memory?
+   - Concurrency Throttling: Are unbounded parallel operations throttled via pools or queues?
+   - Defensive Timeouts: Do all network requests, database transactions, and I/O operations enforce explicit timeouts?
+   - Storage Starvation: Are request bodies, cache entries, and file payloads bounded by hard byte limits and TTL (Time-to-Live) expiration policies?
 
-4. Edge Cases: Are there unexpected user inputs or states that this code fails to account for?
+4. Edge Cases: Are unexpected inputs, empty collections, or connection failures handled gracefully?
 
-5. Best Practices: Does the code violate standard architectural patterns, DRY/SOLID principles, or general maintainability standards?
+5. Best Practices & Maintainability: Does the code adhere to the stack's conventions without introducing gratuitous boilerplate or unrequested abstractions?
 
 Output your review in the following structured format:
 
