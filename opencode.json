@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "Troy",
+  "default_agent": "Ace",
   "agent": {
     "Ace": {
       "name": "Ace",
