@@ -6,7 +6,7 @@
       "name": "Ace",
       "description": "Use when: general tasks, research, analysis, coding, file operations, git operations, or anything else the user needs done. Ace handles everything.",
       "mode": "primary",
-      "model": "opencode/mimo-v2.5-free",
+      "model": "opencode-go/deepseek-v4-flash",
       "permission": {
         "read": "allow",
         "edit": "allow",
@@ -44,7 +44,7 @@
       "name": "Max-Fallback",
       "description": "Use when: general tasks, research, analysis, coding, file operations, git operations, or anything else the user needs done. Max-Fallback handles everything on the paid tier.",
       "mode": "subagent",
-      "model": "opencode/mimo-v2.5",
+      "model": "opencode-go/deepseek-v4-flash",
       "permission": {
         "read": "allow",
         "edit": "allow",

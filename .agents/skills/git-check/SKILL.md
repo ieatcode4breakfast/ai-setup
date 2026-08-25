@@ -2,7 +2,7 @@
 name: git-check
 description: 'Fetch latest remote, report unpushed/unpulled commits, uncommitted changes, merge conflicts — with a verdict line.'
 ---
-Gitify and fetch the latest remote changes. Report with a structured checklist:
+Fetch the latest remote changes. Report with a structured checklist:
 
 1. Branch: name, upstream tracking status
 2. Unpushed commits: list each one (or "none")
