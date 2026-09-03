@@ -40,6 +40,7 @@ Pi:
 - If ~/.pi/agent/skills does not exist: New-Item -ItemType Junction -Path ~/.pi/agent/skills -Target SRC/skills
   If it exists and is already correct junction → skip. If exists and non-empty with other skills → DO NOT overwrite; log "Skipping Pi junction, using settings.json additive path (preserves existing)".
 - Same for ~/.agents/skills → junction if missing; else skip/log.
+- Backup existing ~/.pi/agent/AGENTS.md to ~/.pi/agent/AGENTS.md.bak.<timestamp> if it differs from SRC/AGENTS.md and is not already a symlink to SRC. Then try New-Item -ItemType SymbolicLink -Path ~/.pi/agent/AGENTS.md -Target SRC/AGENTS.md; fallback to Copy-Item if symlink fails (log warning — copy is duplicated; enable Windows Developer Mode for true single-source symlink, otherwise edits to SRC/AGENTS.md require re-wiring). This is the global Pi AGENTS.md — symlink is single source, no duplication.
 
 Codex:
 - Ensure ~/.codex/skills exists (mkdir if needed). Create sub-junction ~/.codex/skills/ai-setup → SRC/skills (keeps .system, notion-spec-to-implementation). If exists and correct → skip.
@@ -54,7 +55,7 @@ Opencode:
 
 STEP 3 — VERIFY (all must pass, no per-project files touched)
 - SRC detection log shows correct absolute path and skills count = 12
-- Pi: cat ~/.pi/agent/settings.json contains SRC/skills; Get-Item ~/.pi/agent/skills or ~/.agents/skills correct or log explains additive fallback
+- Pi: cat ~/.pi/agent/settings.json contains SRC/skills; Get-Item ~/.pi/agent/skills or ~/.agents/skills correct or log explains additive fallback; Get-Item ~/.pi/agent/AGENTS.md points to SRC/AGENTS.md or copy warning + cat ~/.pi/agent/AGENTS.md contains "implementify"
 - Codex: ls ~/.codex/skills/ai-setup lists 12 skills; Get-Item ~/.codex/AGENTS.md points to SRC/AGENTS.md or copy warning
 - Gemini: Get-Item ~/.gemini/GEMINI.md points to SRC/AGENTS.md; Get-Item ~/.gemini/skills correct
 - Opencode: cat ~/.config/opencode/opencode.jsonc contains `"default_agent":"Ace"` and `"prompt":"{file:SRC_POSIX/AGENTS.md}"` with no bad second file reference; `opencode --help` exits 0
@@ -79,7 +80,7 @@ FINAL REPORT: SRC detected, each harness: installed? actions taken (junction/sym
 
 | Harness | Global wiring (additive) | Both AGENTS.md? |
 |---------|--------------------------|-----------------|
-| Pi | `~/.pi/agent/settings.json` `skills: ["SRC/skills"]` + junctions `~/.pi/agent/skills`, `~/.agents/skills` → `skills` | `SRC/AGENTS.md` + `./AGENTS.md` (hierarchical) |
+| Pi | `~/.pi/agent/AGENTS.md` → `AGENTS.md` (symlink, fallback copy + warning if Dev Mode off) + `~/.pi/agent/settings.json` `skills: ["SRC/skills"]` + junctions `~/.pi/agent/skills`, `~/.agents/skills` → `skills` | `SRC/AGENTS.md` (global symlink/copy) + `./AGENTS.md` (hierarchical, concatenated) |
 | Codex | `~/.codex/skills/ai-setup` → `skills` (sub-junction, keeps `.system`) + symlink `~/.codex/AGENTS.md` → `AGENTS.md` | `~/.codex/AGENTS.md` + `./AGENTS.md` |
 | Gemini/Antigravity | `~/.gemini/skills` → `skills` + symlink `~/.gemini/GEMINI.md` → `AGENTS.md` | `~/.gemini/GEMINI.md` + `./GEMINI.md` + `./AGENTS.md` |
 | Opencode | `Ace` only — `~/.config/opencode/opencode.jsonc` `default_agent: Ace`, `prompt: {file:SRC/AGENTS.md}`, `can do everything` (all permissions allow) | Global `AGENTS.md` via Ace prompt + global skills via `~/.agents/skills` |
@@ -94,6 +95,7 @@ Edit `skills/*/SKILL.md` or `AGENTS.md` here → `git commit` → restart Pi/Cod
 
 ```powershell
 cat ~/.pi/agent/settings.json  # contains SRC/skills
+cat ~/.pi/agent/AGENTS.md      # symlink to SRC/AGENTS.md (or copy + warning if Dev Mode off), contains implementify
 ls ~/.codex/skills/ai-setup    # 12 skills
 cat ~/.config/opencode/opencode.jsonc
 ```
@@ -102,5 +104,5 @@ Restart harness required — no re-paste needed for edits.
 
 ## Rollback (if needed)
 
-Remove junctions/symlinks, restore `*.bak.*` backups, remove `SRC/skills` entry from `settings.json` skills array. Repo itself just `git status` — no history rewrite.
+Remove junctions/symlinks (including `~/.pi/agent/AGENTS.md` symlink/copy), restore `*.bak.*` backups, remove `SRC/skills` entry from `settings.json` skills array. Repo itself just `git status` — no history rewrite.
 
