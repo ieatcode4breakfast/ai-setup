@@ -28,6 +28,12 @@ SYNTAX RESTRICTION:
 KEYWORD SCOPE:
 - Keywords are NOT interchangeable. `implementify` does NOT authorize git operations, and `gitify` does NOT authorize file operations.
 
+TRANSITIVE GIT AUTHORIZATION:
+- A `gitify` authorizing a terminal git operation (e.g., "push gitify", "commit and push gitify") transitively authorizes all prerequisite state-modifying git commands required to complete that stated goal in the same execution (e.g., status/diff inspection, add/stage, commit, fetch/pull/rebase, push).
+- Do NOT re-ask for another `gitify` for those prerequisites.
+- Scope is strictly limited to what is necessary for the stated target. Unrelated/destructive operations (e.g., `reset --hard`, unrelated branch deletes) still require a separate staged plan.
+- `gitify` does NOT transitively authorize file creates/edits/deletes or external state changes — those still require `implementify`.
+
 ---
 
 TWO-STEP EXECUTION PROTOCOL
@@ -68,6 +74,6 @@ authorization, and the user calls it out:
 POST-EXECUTION & STATE RESET
 
 - Single-Use Rule: Every authorization token (`implementify`/`gitify`) expires immediately 
-  after the authorized task completes.
-- Never chain authorizations or assume ongoing permission.
+  after the authorized task / full transitive chain completes.
+- Never chain authorizations or assume ongoing permission, except for TRANSITIVE GIT AUTHORIZATION above.
 - Immediately revert to Discuss and Review mode upon completing the action.
