@@ -41,6 +41,7 @@ Pi:
   If it exists and is already correct junction → skip. If exists and non-empty with other skills → DO NOT overwrite; log "Skipping Pi junction, using settings.json additive path (preserves existing)".
 - Same for ~/.agents/skills → junction if missing; else skip/log.
 - Backup existing ~/.pi/agent/AGENTS.md to ~/.pi/agent/AGENTS.md.bak.<timestamp> if it differs from SRC/AGENTS.md and is not already a symlink to SRC. Then try New-Item -ItemType SymbolicLink -Path ~/.pi/agent/AGENTS.md -Target SRC/AGENTS.md; fallback to Copy-Item if symlink fails (log warning — copy is duplicated; enable Windows Developer Mode for true single-source symlink, otherwise edits to SRC/AGENTS.md require re-wiring). This is the global Pi AGENTS.md — symlink is single source, no duplication.
+- Ensure ~/.pi/agent/extensions/notify-on-done.ts exists (mkdir ~/.pi/agent/extensions if needed). If exists and correct → skip. If exists and wrong, backup to ~/.pi/agent/extensions/notify-on-done.ts.pre-ai-setup.bak.<timestamp> then write fresh from spec. Never touch other files in ~/.pi/agent/extensions. Spec to generate inline (no vendored script in SRC — AI writes this): TypeScript extension exporting default function(pi) with pi.on("agent_settled") notifying Pi Ready for input; dispatcher: if WT_SESSION set → Windows toast via powershell.exe ToastNotificationManager ToastText01; else if KITTY_WINDOW_ID set → Kitty OSC 99 i=1:d=0 title + p=body; else → OSC 777 notify;title;body BEL; no npm deps, only node:child_process + process.stdout.write.
 
 Codex:
 - Ensure ~/.codex/skills exists (mkdir if needed). Create sub-junction ~/.codex/skills/ai-setup → SRC/skills (keeps .system, notion-spec-to-implementation). If exists and correct → skip.
@@ -55,7 +56,7 @@ Opencode:
 
 STEP 3 — VERIFY (all must pass, no per-project files touched)
 - SRC detection log shows correct absolute path and skills count = 12
-- Pi: cat ~/.pi/agent/settings.json contains SRC/skills; Get-Item ~/.pi/agent/skills or ~/.agents/skills correct or log explains additive fallback; Get-Item ~/.pi/agent/AGENTS.md points to SRC/AGENTS.md or copy warning + cat ~/.pi/agent/AGENTS.md contains "implementify"
+- Pi: cat ~/.pi/agent/settings.json contains SRC/skills; Get-Item ~/.pi/agent/skills or ~/.agents/skills correct or log explains additive fallback; Get-Item ~/.pi/agent/AGENTS.md points to SRC/AGENTS.md or copy warning + cat ~/.pi/agent/AGENTS.md contains "implementify"; Test-Path ~/.pi/agent/extensions/notify-on-done.ts true and content contains agent_settled
 - Codex: ls ~/.codex/skills/ai-setup lists 12 skills; Get-Item ~/.codex/AGENTS.md points to SRC/AGENTS.md or copy warning
 - Gemini: Get-Item ~/.gemini/GEMINI.md points to SRC/AGENTS.md; Get-Item ~/.gemini/skills correct
 - Opencode: cat ~/.config/opencode/opencode.jsonc contains `"default_agent":"Ace"` and `"prompt":"{file:SRC_POSIX/AGENTS.md}"` with no bad second file reference; `opencode --help` exits 0

@@ -13,6 +13,12 @@ OPERATIONAL MODE & CAPABILITIES
    - External state changes (e.g., creating/modifying calendar events, database 
      records, API resource mutations). [requires `implementify`]
 
+3. EPHEMERAL / ZERO-NET-CHANGE EXCEPTION (no keyword required):
+   - Creating, modifying, deleting files, and running code/builds/tests are allowed WITHOUT `implementify` ONLY if the persistent state of the code-base is exactly the same after as before.
+   - Conditions: prefer scratch outside repo (/tmp); restore all tracked files byte-for-byte; delete all created temp/untracked files and build artifacts in same execution; verify `git status --porcelain` and `git diff` clean; no state-modifying Git commands [still requires `gitify`]; no external state changes.
+   - If full clean-up to exact prior state cannot be guaranteed before acting, do NOT attempt the action at all.
+   - Must disclose transient actions taken.
+
 ---
 
 AUTHORIZATION GATEWAY
