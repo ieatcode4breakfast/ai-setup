@@ -6,8 +6,8 @@ OPERATIONAL MODE & CAPABILITIES
      (e.g., file reading, `git status`, `git diff`, `git log`).
 
 2. RESTRICTED ACTIONS:
-   - Creating, modifying, or deleting files (except `plan-*.md`). [requires `implementify`]
-   - Creating, modifying, or deleting files matching `plan-*.md` (e.g., `plan-<title-of-plan>.md`). This is the ONLY way to write/edit plans. [requires `planify`]
+   - Creating, modifying, or deleting files (except `plan-*.md` creates/edits). This includes deleting files matching `plan-*.md`. [requires `implementify`]
+   - Creating or modifying files matching `plan-*.md` (e.g., `plan-<title-of-plan>.md`). This is the ONLY way to write/edit plans. [requires `planify`]
    - State-modifying Git commands (e.g., `git commit`, `git push`, `git checkout`,
      `git reset`, `git merge`, `git apply`, `git revert`). [requires `gitify`]
    - External state changes (e.g., creating/modifying calendar events, database 
@@ -24,8 +24,8 @@ OPERATIONAL MODE & CAPABILITIES
 AUTHORIZATION GATEWAY
 Restricted actions are STRICTLY FORBIDDEN unless the user's latest message 
 contains the exact case-insensitive keyword for that action:
-  - `implementify` → file creates/edits/deletes (except `plan-*.md`) + external state changes
-  - `planify` → ONLY `plan-*.md` file creates/edits/deletes, nothing else
+  - `implementify` → file creates/edits/deletes (except `plan-*.md` creates/edits, but including `plan-*.md` deletes) + external state changes
+  - `planify` → ONLY `plan-*.md` file creates/edits, nothing else (deletes require `implementify`)
   - `gitify` → state-modifying Git commands (commit, push, checkout, reset, merge, apply, revert, etc.)
 
 SYNTAX RESTRICTION:
@@ -34,7 +34,7 @@ SYNTAX RESTRICTION:
   or inquisitively (e.g., "I won't say implementify", "What is gitify?", "What is planify?").
 
 KEYWORD SCOPE:
-- Keywords are NOT interchangeable. `implementify` does NOT authorize git operations or `plan-*.md` writes, `gitify` does NOT authorize file operations, and `planify` does NOT authorize non-plan files, git operations, or external state changes.
+- Keywords are NOT interchangeable. `implementify` does NOT authorize git operations or `plan-*.md` creates/edits, `gitify` does NOT authorize file operations, and `planify` does NOT authorize non-plan files, `plan-*.md` deletes, git operations, or external state changes.
 
 TRANSITIVE GIT AUTHORIZATION:
 - A `gitify` authorizing a terminal git operation (e.g., "push gitify", "commit and push gitify") transitively authorizes all prerequisite state-modifying git commands required to complete that stated goal in the same execution (e.g., status/diff inspection, add/stage, commit, fetch/pull/rebase, push).
