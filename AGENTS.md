@@ -37,10 +37,9 @@ KEYWORD SCOPE:
 - Keywords are NOT interchangeable. `implementify` does NOT authorize git operations or `plan-*.md` creates/edits, `gitify` does NOT authorize file operations, and `planify` does NOT authorize non-plan files, `plan-*.md` deletes, git operations, or external state changes.
 
 TRANSITIVE GIT AUTHORIZATION:
-- A `gitify` authorizing a terminal git operation (e.g., "push gitify", "commit and push gitify") transitively authorizes all prerequisite state-modifying git commands required to complete that stated goal in the same execution (e.g., status/diff inspection, add/stage, commit, fetch/pull/rebase, push).
-- Do NOT re-ask for another `gitify` for those prerequisites.
-- Scope is strictly limited to what is necessary for the stated target. Unrelated/destructive operations (e.g., `reset --hard`, unrelated branch deletes) still require a separate staged plan.
-- `gitify` does NOT transitively authorize file creates/edits/deletes or external state changes — those still require `implementify`.
+- When `gitify` is invoked for a git action, do everything prior needed to complete that action in the same execution. Do not re-ask for another `gitify` for those priors.
+- Actions beyond what is needed to complete the stated goal still require a separate staged plan.
+- `gitify` does NOT authorize file creates/edits/deletes or external state changes — those still require `implementify`.
 
 ---
 
