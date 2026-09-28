@@ -1,5 +1,0 @@
----
-name: codebase-aligned-plan
-description: 'Analyze the codebase and create an implementation plan aligned with existing conventions.'
----
-Analyze the existing codebase to identify tech stack, architectural and design patterns, coding styles, error handling, testing method, and logical flows, then formulate a comprehensive implementation plan that seamlessly aligns with these established conventions. Create a plan with a comprehensive background, execution context, and granular details so an independent agent can audit and execute it flawlessly.
