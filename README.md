@@ -52,14 +52,14 @@ Gemini / Antigravity:
 - Ensure ~/.gemini/skills junction → SRC/skills (if missing; skip if correct).
 
 Opencode:
-- Ace only, follows AGENTS.md, can do everything. Ensure ~/.config/opencode/opencode.jsonc has `{ "$schema": "https://opencode.ai/config.json", "default_agent": "Ace", "agent": { "Ace": { "name":"Ace","mode":"primary","model":"opencode/mimo-v2.5-free","permission":{"read":"allow","edit":"allow","bash":"allow","glob":"allow","grep":"allow","task":"allow","webfetch":"allow","websearch":"allow","todowrite":"allow","question":"allow"},"prompt":"{file:SRC_POSIX/AGENTS.md}" } } }` where SRC_POSIX is SRC with \ → /. No Max/Troy. Skills via shared `~/.agents/skills` junction (already for Pi) — no separate skills config. If harness not installed → log SKIPPED.
+- Ace only, follows AGENTS.md, can do everything. Ensure ~/.config/opencode/opencode.jsonc has `{ "$schema": "https://opencode.ai/config.json", "default_agent": "Ace", "agent": { "Ace": { "name":"Ace","mode":"primary","permission":{"read":"allow","edit":"allow","bash":"allow","glob":"allow","grep":"allow","task":"allow","webfetch":"allow","websearch":"allow","todowrite":"allow","question":"allow"},"prompt":"{file:SRC_POSIX/AGENTS.md}" } } }` where SRC_POSIX is SRC with \ → /. No Max/Troy. Skills via shared `~/.agents/skills` junction (already for Pi) — no separate skills config. If harness not installed → log SKIPPED.
 
 STEP 3 — VERIFY (all must pass, no per-project files touched)
 - SRC detection log shows correct absolute path and skills count = 12
 - Pi: cat ~/.pi/agent/settings.json contains SRC/skills; Get-Item ~/.pi/agent/skills or ~/.agents/skills correct or log explains additive fallback; Get-Item ~/.pi/agent/AGENTS.md points to SRC/AGENTS.md or copy warning + cat ~/.pi/agent/AGENTS.md contains "implementify"; Test-Path ~/.pi/agent/extensions/notify-on-done.ts true and content contains agent_settled
 - Codex: ls ~/.codex/skills/ai-setup lists 12 skills; Get-Item ~/.codex/AGENTS.md points to SRC/AGENTS.md or copy warning
 - Gemini: Get-Item ~/.gemini/GEMINI.md points to SRC/AGENTS.md; Get-Item ~/.gemini/skills correct
-- Opencode: cat ~/.config/opencode/opencode.jsonc contains `"default_agent":"Ace"` and `"prompt":"{file:SRC_POSIX/AGENTS.md}"` with no bad second file reference; `opencode --help` exits 0
+- Opencode: cat ~/.config/opencode/opencode.jsonc contains `"default_agent":"Ace"` and `"prompt":"{file:SRC_POSIX/AGENTS.md}"` with no bad second file reference and no `"model"` pin (omit model so new sessions use favorites/recents); `opencode --help` exits 0
 - No file under SRC was copied to any project repo; git -C SRC status --porcelain shows only intended untracked files (plan.md etc.), no harness config files staged
 
 HARD CONSTRAINTS
