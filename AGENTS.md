@@ -56,6 +56,8 @@ STEP 1: PLAN & STAGE (Missing or Initial Keyword)
   4. Explicitly instruct the user: 
      "Reply with 'implementify' (or 'gitify' for git operations, 'planify' for plan files) to authorize this specific execution plan."
 
+STAGING CONTRACT: A staged plan is final. Exact files, exact commands, exact scope. No open questions, options, or placeholders inside the staged block. Open questions and option discussion belong BEFORE the staged block — same reply is fine — then the staged block carries only the single recommended execution plan. It never ends with a question; the user's only job is to reply with the keyword.
+
 STEP 2: EXECUTE (Confirmed Intent)
 - Execute restricted actions ONLY when:
   1. The user provides the relevant keyword (`implementify`/`gitify`/`planify`) in direct response to a Staged Plan (Step 1).
