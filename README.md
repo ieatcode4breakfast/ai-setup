@@ -52,14 +52,14 @@ Gemini / Antigravity:
 - Ensure ~/.gemini/skills junction → SRC/skills (if missing; skip if correct).
 
 Opencode:
-- Vesper only, follows AGENTS.md, can do everything. Ensure ~/.config/opencode/opencode.jsonc has `{ "$schema": "https://opencode.ai/config.json", "default_agent": "Vesper", "agent": { "Vesper": { "name":"Vesper","mode":"primary","permission":{"read":"allow","edit":"allow","bash":"allow","glob":"allow","grep":"allow","task":"allow","webfetch":"allow","websearch":"allow","todowrite":"allow","question":"allow"},"prompt":"{file:SRC_POSIX/AGENTS.md}" } } }` where SRC_POSIX is SRC with \ → /. No Max/Troy. Skills via shared `~/.agents/skills` junction (already for Pi) — no separate skills config. If harness not installed → log SKIPPED.
+- Elliot only, follows AGENTS.md, can do everything. Ensure ~/.config/opencode/opencode.jsonc has `{ "$schema": "https://opencode.ai/config.json", "default_agent": "Elliot", "agent": { "Elliot": { "name":"Elliot","mode":"primary","permission":{"read":"allow","edit":"allow","bash":"allow","glob":"allow","grep":"allow","task":"allow","webfetch":"allow","websearch":"allow","todowrite":"allow","question":"allow"},"prompt":"{file:SRC_POSIX/AGENTS.md}" } } }` where SRC_POSIX is SRC with \ → /. No Max/Troy. Skills via shared `~/.agents/skills` junction (already for Pi) — no separate skills config. If harness not installed → log SKIPPED.
 
 STEP 3 — VERIFY (all must pass, no per-project files touched)
 - SRC detection log shows correct absolute path and skills count = 12
 - Pi: cat ~/.pi/agent/settings.json contains SRC/skills; Get-Item ~/.pi/agent/skills or ~/.agents/skills correct or log explains additive fallback; Get-Item ~/.pi/agent/AGENTS.md points to SRC/AGENTS.md or copy warning + cat ~/.pi/agent/AGENTS.md contains "implementify"; Test-Path ~/.pi/agent/extensions/notify-on-done.ts true and content contains agent_settled
 - Codex: ls ~/.codex/skills/ai-setup lists 12 skills; Get-Item ~/.codex/AGENTS.md points to SRC/AGENTS.md or copy warning
 - Gemini: Get-Item ~/.gemini/GEMINI.md points to SRC/AGENTS.md; Get-Item ~/.gemini/skills correct
-- Opencode: cat ~/.config/opencode/opencode.jsonc contains `"default_agent":"Vesper"` and `"prompt":"{file:SRC_POSIX/AGENTS.md}"` with no bad second file reference and no `"model"` pin (omit model so new sessions use favorites/recents); `opencode --help` exits 0
+- Opencode: cat ~/.config/opencode/opencode.jsonc contains `"default_agent":"Elliot"` and `"prompt":"{file:SRC_POSIX/AGENTS.md}"` with no bad second file reference and no `"model"` pin (omit model so new sessions use favorites/recents); `opencode --help` exits 0
 - No file under SRC was copied to any project repo; git -C SRC status --porcelain shows only intended untracked files (plan.md etc.), no harness config files staged
 
 HARD CONSTRAINTS
@@ -84,7 +84,7 @@ FINAL REPORT: SRC detected, each harness: installed? actions taken (junction/sym
 | Pi | `~/.pi/agent/AGENTS.md` → `AGENTS.md` (symlink, fallback copy + warning if Dev Mode off) + `~/.pi/agent/settings.json` `skills: ["SRC/skills"]` + junctions `~/.pi/agent/skills`, `~/.agents/skills` → `skills` | `SRC/AGENTS.md` (global symlink/copy) + `./AGENTS.md` (hierarchical, concatenated) |
 | Codex | `~/.codex/skills/ai-setup` → `skills` (sub-junction, keeps `.system`) + symlink `~/.codex/AGENTS.md` → `AGENTS.md` | `~/.codex/AGENTS.md` + `./AGENTS.md` |
 | Gemini/Antigravity | `~/.gemini/skills` → `skills` + symlink `~/.gemini/GEMINI.md` → `AGENTS.md` | `~/.gemini/GEMINI.md` + `./GEMINI.md` + `./AGENTS.md` |
-| Opencode | `Vesper` only — `~/.config/opencode/opencode.jsonc` `default_agent: Vesper`, `prompt: {file:SRC/AGENTS.md}`, `can do everything` (all permissions allow) | Global `AGENTS.md` via Vesper prompt + global skills via `~/.agents/skills` |
+| Opencode | `Elliot` only — `~/.config/opencode/opencode.jsonc` `default_agent: Elliot`, `prompt: {file:SRC/AGENTS.md}`, `can do everything` (all permissions allow) | Global `AGENTS.md` via Elliot prompt + global skills via `~/.agents/skills` |
 
 No per-project state. `SRC` is never hardcoded — the AI resolves `$PSScriptRoot` / `git rev-parse` / `pwd` at runtime.
 
